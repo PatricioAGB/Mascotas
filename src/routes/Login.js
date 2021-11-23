@@ -8,15 +8,4 @@ router.get('/register', async (req,res) =>{
    
  });
 
- router.get('/register', async (req,res) =>{
-    const user = await pool.query("SELECT * FROM usuario");
-    res.send(user);
-});
-
-
-
-
-
-
-
-module.exports = router;  
+module.exports = router;
