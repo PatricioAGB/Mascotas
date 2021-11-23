@@ -4,8 +4,10 @@ const pool = require('../database');
 
 
 router.get('/register', async (req,res) =>{
-    res.render('Login/register');
+    const usuario = await pool.query('SELECT * FROM usuario');
+    res.render('Login/register',{usuario});
    
- });
+
+});
 
 module.exports = router;
