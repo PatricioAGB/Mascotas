@@ -7,8 +7,8 @@ const pool = require('../database');
 router.get('/', async (req,res) =>{
 
     try {
-    const productos = await pool.query("Select * from usuario");
-    res.render('index', {productos});
+    const usuario = await pool.query("Select * from usuario");
+    res.render('index', {usuario});
     } catch (error) {
         console.log(error);
     }
