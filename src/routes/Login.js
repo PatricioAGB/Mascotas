@@ -17,9 +17,13 @@ router.get('/login', async (req,res) =>{
     //Registro de usuario 
 router.post('/register', async (req,res) => {
     try {
-     const {Usuario,CORREO,password} = req.body;
-     await pool.query('call Registro(?,?,?)',[Usuario,CORREO,password]);
-        
+     const {Usuario,CORREO,password,Password1} = req.body;
+     if (password==Password1) {
+        await pool.query('call Registro(?,?,?)',[Usuario,password,CORREO]);
+     } else {
+         
+     }
+     
     } catch (e) {
  
         console.log(e);
