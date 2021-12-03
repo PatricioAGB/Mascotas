@@ -7,7 +7,7 @@ router.get('/register', async (req,res) =>{
     const usuario = await pool.query('SELECT * FROM usuario');
     res.render('../views/sesion/register.hbs',{usuario});
 
-   
+
 
     //Registro de usuario 
 router.post('/register', async (req,res) => {
