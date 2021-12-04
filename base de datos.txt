@@ -1,0 +1,29 @@
+CREATE DATABASE mascotas;
+
+CREATE TABLE usuario(
+idUsurio INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+cuenta VARCHAR(30) NOT NULL,
+pass VARCHAR(20) NOT NULL,
+correo VARCHAR(30) NOT NULL,
+cargo TINYINT UNSIGNED DEFAULT 0
+);
+delimiter //
+create procedure Registro(in usuario varchar(30),in contra varchar(20),in mail varchar(20))
+begin
+	insert into usuario(cuenta,pass,correo) values (usuario,contra,mail);
+	
+	end//
+	delimiter ;
+call Registro("juan","Juanito123","Juan@gmail.com");
+
+delimiter //
+create procedure login(in nombre varchar(30),in contrasena varchar(20))
+begin
+    SELECT * FROM usuario WHERE cuenta=nombre AND pass=contrasena;
+
+
+    end//
+    delimiter ;
+
+
+
