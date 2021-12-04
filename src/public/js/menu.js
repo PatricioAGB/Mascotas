@@ -5,5 +5,12 @@ console.log(menu)
 console.log(harmburger)
 
 harmburger.addEventListener('click', ()=>{
-    alert("click")
+   menu.classList.toggle("spread")
+})
+
+window.addEventListener('click', e=>{
+    if(menu.classList.contains('spread')
+        && e.target != menu  && e.target != harmburger ){
+            menu.classList.toggle("spread")
+    }
 })
