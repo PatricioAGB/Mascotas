@@ -13,7 +13,7 @@
 </head>
 <body class="body">
     <header class="header" id="inicio">
-        <img src="/img/hamburguesa.svg" alt="" class="hamburger">
+        <img src="../img/hamburguesa.svg" alt="" class="hamburger">
         <nav class="menu-navegacion" >
             <a href="#login">Login</a>
             <a href="/sesion/login">Iniciar sesión</a>
@@ -31,7 +31,7 @@
         <section class="services contenedor" id="servicios">
             <h2 class="subtitulo">Nuestro Servicio</h2>
             <div class="contenedor-servicio">
-                <img src="img/imagen1.png" alt="">
+                <img src="../img/imagen1.png" alt="">
                 <div class="checklist-servicio">
                     <div class="service">
                         <h3 class="n-service"><span class="number">1</span>Diseño Web</h3>
@@ -52,29 +52,29 @@
             <div class="contenedor">
                 <h2 class="subtitulo">Galeria</h2>
                 <div class="contenedor-galeria">
-                    <img src="img/uno.jpg" alt="" class="img-galeria">
-                    <img src="img/dos.jpg" alt="" class="img-galeria">
-                    <img src="img/tres.jpg" alt="" class="img-galeria">
+                    <img src="../img/uno.jpg" alt="" class="img-galeria">
+                    <img src="../img/dos.jpg" alt="" class="img-galeria">
+                    <img src="../img/tres.jpg" alt="" class="img-galeria">
                 </div>
             </div>
         </section>
         <section class="imagen-light">
-        <img src="img/close.svg" alt="" class="close">
-        <img src="img/dos.jpg" alt="" class="agregar-imagen">
+        <img src="../img/close.svg" alt="" class="close">
+        <img src="../img/dos.jpg" alt="" class="agregar-imagen">
         </section> 
         <section class="contenedor" id="expertos">
             <h2 class="subtitulos">Expertos en:</h2>
             <section class="experts">
                 <div class="cont-expert">
-                    <img src="img/graficos.svg" alt="">
+                    <img src="../img/graficos.svg" alt="">
                     <h3 class="n-expert">Analytics</h3>
                 </div>
                 <div class="cont-expert">
-                    <img src="img/seo.svg" alt="">
+                    <img src="../img/seo.svg" alt="">
                     <h3 class="n-expert">SEO</h3>
                 </div>
                 <div class="cont-expert">
-                    <img src="img/security.svg" alt="">
+                    <img src="../img/security.svg" alt="">
                     <h3 class="n-expert">Security</h3>
                 </div>
             </section>
@@ -104,5 +104,11 @@
 
     <script src="/js/menu.js"></script>
     <script src="/js/lightbox.js"></script>
+    <script>
+const token = '{{token}}';
+console.log(token);
+localStorage.setItem('token',token);
+</script>
 </body>
+
 </html>
