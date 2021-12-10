@@ -1,0 +1,113 @@
+create database mascotas;
+use mascotas; 
+CREATE TABLE comuna(
+idcomuna INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(60) NOT null
+);
+
+CREATE TABLE direccion(
+iddireccion INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+idcomuna INT UNSIGNED NOT NULL,
+FOREIGN KEY (idcomuna) REFERENCES comuna(idcomuna),
+calle VARCHAR(30) NOT NULL,
+numero VARCHAR(20)  NOT NULL,
+referencia VARCHAR(30) NOT null
+);
+
+
+CREATE TABLE usuario(
+idusuario INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+iddireccion INT UNSIGNED,
+FOREIGN KEY (iddireccion) REFERENCES direccion(iddireccion),
+cuenta VARCHAR(30) NOT NULL,
+pass VARCHAR(20) NOT NULL,
+correo VARCHAR(30) NOT NULL,
+cargo TINYINT UNSIGNED DEFAULT 0,
+estado_cuenta TINYINT(1) UNSIGNED NOT NULL DEFAULT 1,
+nombre VARCHAR(60) NOT NULL,
+apellido_paterno VARCHAR(60),
+apellido_materno VARCHAR(60)
+);
+CREATE TABLE descuento (
+iddescuento INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+valor_descuento DECIMAL NOT NULL,
+nombre_descuento VARCHAR(60) NOT NULL,
+fecha_ini DATETIME NOT NULL,
+fecha_fin DATETIME NOT NULL,
+estado TINYINT(1) NOT NULL DEFAULT 1
+);
+
+CREATE TABLE producto(
+idproducto INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+iddescuento INT UNSIGNED NOT NULL,
+FOREIGN KEY (iddescuento) REFERENCES descuento(iddescuento),
+nombre VARCHAR(60) NOT NULL,
+categoria VARCHAR(60) NOT NULL,
+sub_categoria VARCHAR(60) NOT NULL,
+imagen LONGTEXT NOT NULL,
+estado TINYINT(1) NOT NULL DEFAULT 1,
+precio INT UNSIGNED NOT null
+
+);
+
+CREATE TABLE carro_producto(
+idcarro INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+idusuario INT UNSIGNED NOT NULL,
+FOREIGN KEY (idusuario) REFERENCES usuario(idusuario),
+idproducto INT UNSIGNED NOT NULL,
+FOREIGN KEY (idproducto) REFERENCES producto(idproducto),
+total INT UNSIGNED NOT null
+);
+
+CREATE TABLE servicio(
+idservicio INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+iddireccion INT UNSIGNED NOT NULL,
+FOREIGN KEY (iddireccion) REFERENCES direccion(iddireccion),
+nombre VARCHAR(60) NOT NULL,
+tipo_servicio VARCHAR(60) NOT NULL,
+sub_categoria VARCHAR(60) NOT NULL,
+imagen LONGTEXT NOT NULL,
+estado TINYINT(1) NOT NULL DEFAULT 1,
+tipo_atencion TINYINT NOT NULL DEFAULT 1,
+precio INT UNSIGNED NOT NULL
+);
+
+INSERT INTO comuna VALUES 	(1,"Isla de Pascua"),
+				(2,"Calle Larga"),
+				(3,"Los Andes"),
+				(4,"Rinconada"),
+				(5,"San Esteban"),
+				(6,"Cabildo"),
+				(7,"La Ligua"),
+				(8,"Papudo"),
+				(9,"Petorca"),
+				(10,"Zapallar"),
+				(11,"Hijuelas"),
+				(12,"La Calera"),
+				(13,"La Cruz"),
+				(14,"Nogales"),
+				(15,"Quillota"),
+				(16,"Algarrobo"),
+				(17,"Cartagena"),
+				(18,"El Quisco"),
+				(19,"El Tabo"),
+				(20,"San Antonio"),
+				(21,"Santo Domingo"),
+				(22,"Catemu"),
+				(23,"Llay-Llay"),
+				(24,"Panquehue"),
+				(25,"Putaendo"),
+				(26,"San Felipe"),
+				(27,"Santa María"),
+				(28,"Casablanca"),
+				(29,"Concón"),
+				(30,"Juan Fernández"),
+				(31,"Puchuncaví"),
+				(32,"Quintero"),
+				(33,"Valparaíso"),
+				(34,"Viña del Mar"),
+				(35,"Limache"),
+				(36,"Olmué"),
+				(37,"Quilpué"),
+				(38,"Villa Alemana");
+			

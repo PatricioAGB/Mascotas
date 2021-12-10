@@ -21,8 +21,12 @@ router.get("/register", async (req, res) => {
       console.log(e);
     }
   });
-  // Get de login
+// login success
 });
+router.get("/login/success", async (req, res) => {
+  res.render("../views/sesion/loginsuccess.hbs");
+});
+  // Get de login
 router.get("/login", async (req, res) => {
   res.render("../views/sesion/login.hbs");
 });
@@ -37,7 +41,7 @@ router.post("/login", async (req, res) => {
     let acc = b["cuenta"]; //cuenta de la base de datos
     let contrasena = b["pass"]; //contraseña de la base de datos
     if (user == acc && pass == contrasena) { 
-     res.render('../views/index.hbs',{token:id}); //token creado
+     res.render('../views/sesion/loginsuccess.hbs',{token:id,us:acc}); //token creado
     } else {
       console.log("contraseña incorrecta");
     }
