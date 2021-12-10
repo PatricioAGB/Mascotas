@@ -5,9 +5,14 @@ const router = express.Router();
 const pool = require("../database");
 
 //get register
-router.get("/register", async (req, res) => {
-  const usuario = await pool.query("SELECT * FROM usuario");
-  res.render("../views/sesion/register.hbs", { usuario });
+
+router.get('/register', async (req,res) =>{
+    const comuna = await pool.query('SELECT * FROM comuna');
+    console.log(comuna);
+    res.render('sesion/register',{comuna});
+   
+
+});
 
   //Registro de usuario
   router.post("/register", async (req, res) => {
@@ -22,7 +27,7 @@ router.get("/register", async (req, res) => {
     }
   });
 // login success
-});
+
 router.get("/login/success", async (req, res) => {
   res.render("../views/sesion/loginsuccess.hbs");
 });

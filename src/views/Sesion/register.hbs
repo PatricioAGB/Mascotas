@@ -24,6 +24,35 @@
                             <input type="text" class="form-control" id="Password1" name="Password1" placeholder=" Confirmar Contraseña" required>
                            
                         </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="Password1" name="Password1" placeholder=" Nombre" required>
+                           
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="Password1" name="Password1" placeholder=" Apellido paterno" required>
+                           
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="Password1" name="Password1" placeholder=" apellido materno" required>
+                           
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-control" id="comuna" name="comuna">
+                             <option value="0">Seleccione su comuna ...</option>
+                             {{#each comuna}}
+                                <option value={{idcomuna}}>{{Nombre}}</option>
+                             {{/each}}
+
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="Password1" name="Password1" placeholder="calle " required>
+                           
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="Password1" name="Password1" placeholder=" numero" required>
+                           
+                        </div>
                        
                      
                        

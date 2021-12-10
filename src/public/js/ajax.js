@@ -88,10 +88,10 @@ function eliminarCliente(id) {
 
 
 
-$("#region").change(function () {
-    const id = $("#region").val();
+$("#comuna").change(function () {
+    const id = $("#comuna").val();
     $.ajax({
-      url: "/clientes/regiones/" + id,
+      url: "/sesion/register" + id,
       type: "GET",
       success: function (data) {
   
