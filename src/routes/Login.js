@@ -8,7 +8,6 @@ const pool = require("../database");
 
 router.get('/register', async (req,res) =>{
     const comuna = await pool.query('SELECT * FROM comuna');
-    console.log(comuna);
     res.render('sesion/register',{comuna});
    
 
@@ -35,6 +34,12 @@ router.get("/login/success", async (req, res) => {
 router.get("/login", async (req, res) => {
   res.render("../views/sesion/login.hbs");
 });
+
+// Get de loginregistro
+router.get("/loginregistro", async (req, res) => {
+  res.render("../views/sesion/loginregistro.hbs");
+}); 
+
 // Confirmacion inicio de sesion
 router.post("/login", async (req, res) => {
   try {
