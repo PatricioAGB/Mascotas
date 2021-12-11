@@ -3,6 +3,13 @@
     padding: 0;
     box-sizing:border-box;
 }
+.ocultar {
+    display: none;
+}
+ 
+.mostrar {
+    display: block;
+}
 
 :root{
     scroll-behavior: smooth;

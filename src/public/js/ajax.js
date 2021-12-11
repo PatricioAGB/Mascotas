@@ -88,30 +88,7 @@ function eliminarCliente(id) {
 
 
 
-$("#comuna").change(function () {
-    const id = $("#comuna").val();
-    $.ajax({
-      url: "/sesion/register" + id,
-      type: "GET",
-      success: function (data) {
-  
-        var len = data.length;
-        if (len <= 0) {
-          $("#comunas").empty();
-          $("#comunas").append("<option value='0'>Seleccione Su Comuna...</option>");
-        } else {
-          $("#comunas").empty();
-          for (var i = 0; i < len; i++) {
-            var value1 = data[i]['Nombre'];
-            var value2 = data[i]['Id_Comuna'];
-            $("#comunas").append("<option value='" + value2 + "' >" + value1 + "</option>");
-  
-          }
-        }
-  
-      }
-    });
-  });
+
 
 
   function detalle(rut) {
