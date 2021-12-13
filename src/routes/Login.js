@@ -24,6 +24,30 @@ router.post("/loginregistro", async (req, res) => {
     console.log(e);
   }
 });
+// get register
+router.get('/register', async (req,res) =>{
+  const comuna = await pool.query('SELECT * FROM comuna');
+  res.render('sesion/register',{comuna});
+ 
+
+});
+
+//Registro de usuario
+router.post("/registro", async (req, res) => {
+  try {
+    const {Usuario, CORREO, password, Password1,Nombre,ApellidoPaterno,ApellidoMaterno} = req.body;
+    console.log(Usuario, CORREO, password, Password1,Nombre,ApellidoPaterno,ApellidoMaterno);
+    if (password == Password1) {
+      
+     await pool.query("CALL registro(?,?,?,?,?,?,?)", [,Usuario,password,CORREO,Nombre,ApellidoPaterno,ApellidoMaterno]);
+    
+    } else {
+    }
+  } catch (e) {
+    console.log(e);
+  }
+});
+
 
 // login success
 

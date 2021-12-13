@@ -32,26 +32,26 @@
                 <!--Formulario de Login y registro-->
                 <div class="contenedor__login-register">
                     <!--Login-->
-                    <form method="POST" action="" class="formulario__login">
+                    <form method="POST" action="//localhost:3000/sesion/loginregistro" class="formulario__login">
                         <h2>Iniciar Sesión</h2>
                         <input type="text" class="form-control" id="user" name="user" placeholder="Usuario" autofocus
                         required>
                         <input type="text" class="form-control" id="pass" name="pass" placeholder="Contraseña" required>
-                        <button>Entrar</button>
+                      <input type="submit" value="Iniciar Sesión">
                     </form>
 
                     <!--Register-->
-                    <form method="POST" action="" class="formulario__register">
+                    <form method="POST" action="//localhost:3000/sesion/registro" class="formulario__register">
                         <h2>Regístrarse</h2>
                         <input type="text" class="form-control" id="Usuario" name="Usuario" placeholder="Usuario" autofocus
                         required>
                         <input type="email" class="form-control" id="CORREO" name="CORREO" placeholder="Correo@ejemplo.com" required>
-                        <input type="text" class="form-control" id="Password" name="password" placeholder="Contraseña" required>
-                        <input type="text" class="form-control" id="Password1" name="Password1" placeholder=" Confirmar Contraseña" required>
+                        <input type="password" class="form-control" id="Password" name="password" placeholder="Contraseña" required>
+                        <input type="password" class="form-control" id="Password1" name="Password1" placeholder=" Confirmar Contraseña" required>
                         <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder=" Nombre" required>
                         <input type="text" class="form-control" id="ApellidoPaterno" name="ApellidoPaterno" placeholder=" Apellido paterno" required>
                         <input type="text" class="form-control" id="ApellidoMaterno" name="ApellidoMaterno" placeholder=" Apellido materno" required>
-                        <button>Regístrarse</button>
+                        <input type="submit" value="Registrarse">
                     </form>
                 </div>
             </div>
