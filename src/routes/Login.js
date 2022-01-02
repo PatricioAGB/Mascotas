@@ -13,13 +13,17 @@ router.post("/loginregistro", async (req, res) => {
     let b = JSON.parse(JSON.stringify(a));
     let id = b['idusuario']; //id usuario de la base de datos
     let login = b["cuenta"]; //cuenta de la base de datos
+    let cargo = b['cargo']; // cargo (cliente o trabajador)
+    let estado =b['estado_cuenta']; // estado de la cuenta
     let acc = b["nombre"];
     let contrasena = b["pass"]; //contraseña de la base de datos
-    if (user == login && pass == contrasena) { 
-     res.render('../views/sesion/loginsuccess.hbs',{token:id,us:acc}); //token creado
+    if (cargo == 1 && estado == 1 && user == login && pass == contrasena)  { 
+      res.render('../views/sesion/admin.hbs',{token:id,us:acc}); //token creado
     } else {
-      console.log("contraseña incorrecta");
-    }
+    if(user == login && pass == contrasena) {
+      res.render('../views/sesion/loginsuccess.hbs',{token:id,us:acc}); //token creado
+    } else{console.log("contraseña incorrecta");
+  }}  
   } catch (e) {
     console.log(e);
   }
@@ -40,7 +44,7 @@ router.post("/registro", async (req, res) => {
     if (password == Password1) {
       
      await pool.query("CALL registro(?,?,?,?,?,?,?)", [,Usuario,password,CORREO,Nombre,ApellidoPaterno,ApellidoMaterno]);
-    
+     res.render("sesion/loginregistro");
     } else {
     }
   } catch (e) {
@@ -64,10 +68,23 @@ router.get("/loginregistro", async (req, res) => {
   res.render("../views/sesion/loginregistro.hbs");
 }); 
 
+  // 
+  router.post("/admin", async (req, res) => {
+  
+    const{us,token} = req.body;
+    localStorage.setItem('token',token);
+    console.log(us,token);
+    localStorage.removeItem('token');
+  });
 
 //get index
 router.get("/index", async (req, res) => {
   const usuario = await pool.query("SELECT * FROM usuario");
   res.render("../views/index", { usuario });
+});
+
+router.get('Sesion/productos/verProductos', async (req,res) =>{
+  res.render('/Sesion/productos/verProductos');
+ 
 });
 module.exports = router;
