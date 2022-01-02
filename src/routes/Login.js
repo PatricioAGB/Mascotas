@@ -82,4 +82,9 @@ router.get("/index", async (req, res) => {
   const usuario = await pool.query("SELECT * FROM usuario");
   res.render("../views/index", { usuario });
 });
+
+router.get('Sesion/productos/verProductos', async (req,res) =>{
+  res.render('/Sesion/productos/verProductos');
+ 
+});
 module.exports = router;

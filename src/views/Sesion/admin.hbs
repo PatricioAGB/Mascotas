@@ -14,7 +14,7 @@
 </head>
 <body class="body">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#">Inicio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -22,7 +22,7 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/productos/verProductos">Productos <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
@@ -34,15 +34,18 @@
     </ul>
   </div>
   <div  align="center">
-    <form method="POST"action="//localhost:3000/sesion/admin">
    <img src="https://img.icons8.com/office/40/000000/user.png"/><font size=3> {{us}}</font> 
   <font size=3><a>editar</a></font>
   <script>
-    localStorage.setItem('token',token);
-    {{token}}
+  function myFunction(){
+    localStorage.removeItem('token');
+    window.location.href="/";
+  };
     </script>
-  <button>cerrar sesión</button>
-  </form>
+  <button onclick="myFunction()">Cerrar Sesión
+
+  </button>
+
    </div>   
     
 </nav>
@@ -60,7 +63,7 @@ console.log(token);
 console.log(us);
 localStorage.setItem('token',token);
 localStorage.setItem('us',us);
-</script>
+</script>  
 </body>
 
 </html>
