@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascota</title>
+   
+    <link rel="stylesheet" href="css/estilo.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body class="body">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+     
+    </ul>
+  </div>
+  <div  align="center">
+    <form method="POST"action="//localhost:3000/sesion/admin">
+   <img src="https://img.icons8.com/office/40/000000/user.png"/><font size=3> {{us}}</font> 
+  <font size=3><a>editar</a></font>
+  <script>
+    localStorage.setItem('token',token);
+    {{token}}
+    </script>
+  <button>cerrar sesión</button>
+  </form>
+   </div>   
+    
+</nav>
+ 
+
+    <script src="/js/menu.js"></script>
+    <script src="/js/lightbox.js"></script>
+    <script>
+const token = '{{token}}';
+// const token = localstorage.getItem('us');    Para otras paginas :D
+// localStorage.removeItem('token');  Para deslogear
+
+const us = '{{us}}';
+console.log(token);
+console.log(us);
+localStorage.setItem('token',token);
+localStorage.setItem('us',us);
+</script>
+</body>
+
+</html>
