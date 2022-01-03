@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="css/estilo.css">
+
+
+  <body>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">INICIO SERVICIOS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="/servicios/verServicios">Ver Servicios <span class="sr-only">(current)</span></a>
+      </li>
+
+     
+    </ul>
+  </div>
+  <div  align="center">
+   <img src="https://img.icons8.com/office/40/000000/user.png"/><font size=3> {{us}}</font> 
+  <font size=3><a>editar</a></font>
+  <script>
+  function myFunction(){
+    localStorage.removeItem('token');
+    window.location.href="/";
+  };
+    </script>
+  <button onclick="myFunction()">Cerrar Sesión
+
+  </button>
+
+   </div>   
+    
+</nav>
+      
+      
+  </body>
+
+  
+
