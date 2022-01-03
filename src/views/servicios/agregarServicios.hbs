@@ -1,41 +1,43 @@
-<link rel="stylesheet" href="css/estilo.css">
-
-
-  <body>
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">INICIO SERVICIOS</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="/servicios/verServicios">Ver Servicios <span class="sr-only">(current)</span></a>
-      </li>
-
-     
-    </ul>
-  </div>
-  <div  align="center">
-   <img src="https://img.icons8.com/office/40/000000/user.png"/><font size=3> {{us}}</font> 
-  <font size=3><a>editar</a></font>
-  <script>
-  function myFunction(){
-    localStorage.removeItem('token');
-    window.location.href="/";
-  };
-    </script>
-  <button onclick="myFunction()">Cerrar Sesión
-
-  </button>
-
-   </div>   
-    
-</nav>
-      
-      
-  </body>
-
-  
-
+<div class="container p-4">
+    <h2 style="text-align: center;">Agregar Servicios</h2>
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" autocomplete="off" onsubmit="return validarFormulario()" >
+                        
+                          <div class="mb-3">
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" autofocus
+                                aria-autocomplete="none" >
+                        </div>
+                      
+                       
+                         <div class="mb-3">
+                            <input type="text" class="form-control" id="tipo_servicio" name="tipo_servicio" placeholder="Tipo servicio" required>
+                            <div id="tel_error" style="font-size:14px; color:#FF0000;"></div>
+                            
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" name="sub_categoria" placeholder="sub_categoria" required>
+                        </div>
+                         
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="tipo_atencion" name="tipo_atencion" placeholder="tipo_atencion" required>
+                           
+                        </div>
+                        <div class="mb-3">
+                            <input type="number" class="form-control" id="precio" name="precio" placeholder="Precio" required>
+                           
+                        </div>
+                  
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-success">
+                                Agregar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

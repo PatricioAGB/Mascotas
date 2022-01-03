@@ -1,0 +1,55 @@
+<div class="container p-4">
+        <link rel="stylesheet" href="css/estilo.css">
+    <h2 style="text-align: center;">Actualizar Productos</h2>
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" autocomplete="off"  >
+                     
+                        <div class="mb-3">
+                            <label for="id">ID SERVICIO</label>
+                            <input type="text" class="form-control" id="id" name="id" disabled value="{{pr.idservicio}}"
+                                aria-autocomplete="none">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" name="nombre" placeholder=" Nombre " value="{{pr.nombre}}">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="tipo_servicio">Tipo de Servicio</label>
+                            <input type="text" class="form-control" name="tipo_servicio" placeholder="Tipo de Servicio" value="{{pr.tipo_servicio}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="sub_servicio">Sub Servicio</label>
+                            <input type="text" class="form-control" name="sub_servicio" placeholder="Sub Servicio" value="{{pr.sub_servicio}}">
+                        </div>
+                         
+                        <div class="mb-3">
+                            <label for="imagen">Imagen</label>
+                            <input type="text" class="form-control" name="imagen" placeholder="Tipo de imagen" value="{{pr.imagen}}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="tipo_atencion">Tipo De Atencion</label>
+                            <input type="text" class="form-control" name="tipo_atencion" placeholder="Sub tipo_atencion" value="{{pr.tipo_atencion}}">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="precio">Precio</label>
+                            <input type="number" class="form-control" name="precio" placeholder="precio" value="{{pr.precio}}">
+                        </div>
+                    
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-success">
+                                Actualizar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

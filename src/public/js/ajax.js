@@ -166,6 +166,94 @@ function eliminarCliente(id) {
   ],             
 });
 
+let url3 = 'http://localhost:3000/servicios/listaServicios';        
+  let tablaServicios =  $('#tablaServicio').DataTable({    
+  "ajax":{
+      "url": url3,
+      "dataSrc":""
+  },
+  "language": {
+
+    "lengthMenu": "Mostrar _MENU_ registros",
+
+    "zeroRecords": "No se encontraron resultados",
+
+    "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+
+    "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+
+    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+
+    "sSearch": "Buscar:",
+
+    "oPaginate": {
+
+        "sFirst": "Primero",
+
+        "sLast":"Último",
+
+        "sNext":">>",
+
+        "sPrevious": "<<"
+
+     },
+
+     "sProcessing":"Procesando...",
+
+},
+  "columns":[
+      {"data":"idservicio",},
+      {"data":"nombre"},
+      {"data":"tipo_servicio"},
+      {"data":"sub_categoria"},
+      {"data":"tipo_atencion"},
+      {"data":"precio"},
+      {"data" :"idservicio",  render:function(data)
+      {
+        return `<td>  <a href='/servicios/editarServicios/`+data+`' class='edit' title='Actualizar' data-toggle='tooltip'><i class='material-icons'>&#xE254;</i></a></td>`+
+               `<td>  <a href='#' onClick='eliminarServicios("`+data+`")'class='delete' title='Eliminar' data-toggle='tooltip'><i class='material-icons'>&#xE872;</i></a> </td>`
+      }}
+      
+     
+  ],             
+});
+
+function eliminarServicios(id) {
+  console.log(id);
+  Swal.fire({
+    title: 'Estas seguro?',
+    text: "No podrás revertir esto!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, Borrar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+
+      $.ajax({
+
+        url: "/servicios/verServicios/" + id,
+        type: "POST",
+        data: {
+          id: id
+        },
+        success: () => {
+          tablaProductos.ajax.reload();      
+          Swal.fire(
+            'Eliminado!',
+            'El cliente ha sido eliminado.',
+            'success'
+          );
+        }
+      });
+    }
+  })
+
+
+};
+
 function eliminarProductos(id) {
   console.log(id);
   Swal.fire({
