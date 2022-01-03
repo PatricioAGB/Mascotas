@@ -46,7 +46,8 @@ next();
 app.use(require('./routes'));
 app.use('/clientes',require('./routes/clientes'));
 app.use('/sesion',require('./routes/login'));
-
+app.use('/venta',require('./routes/productos'));
+app.use('/agregar',require('./routes/productos'));
 
 
 

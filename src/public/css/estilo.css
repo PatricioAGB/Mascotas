@@ -15,7 +15,7 @@
     scroll-behavior: smooth;
 }
 
-body{
+.body{
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -100,7 +100,23 @@ header{
 .subtitulo{
     text-align: center;
     font-weight: 300;
-    color: #9f8ad0;
+    color: #fdfdfd;
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+.subtitulo_2{
+    text-align: center;
+    font-weight: 300;
+    color: #000000;
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+.subtitulo_3{
+    text-align: center;
+    font-weight: 300;
+    color: #fdfdfd;
     margin-bottom: 40px;
     font-size: 40px;
 }
@@ -123,16 +139,17 @@ header{
 
 .service{
     margin-bottom: 20%;
+    color: #ffffff;
 }
 
 .n-service{
     margin-bottom: 7%;
-    color: #9f8ad0;
+    color: #ffffff;
 }
 
 .number{
     display: inline-block;
-    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    background-image: linear-gradient(to top, #ffffff 0%, #c072d8 100%);
     width: 40px;
     height: 40px;
     color: #fff;
@@ -210,6 +227,7 @@ header{
      width: 30%;
      text-align: center;
      margin-bottom: 20px;
+     color: #f2f2f2;
  }
 
  .cont-expert img{
