@@ -141,7 +141,7 @@ begin
 	delimiter ;		
 
 
-CALL login("ELPatoLP","Patito531");
+
 
 
 CREATE VIEW v_productos AS
@@ -150,7 +150,6 @@ FROM descuento d
 INNER JOIN producto p ON d.iddescuento=p.iddescuento ;
 
 
-SELECT * FROM v_productos;
 
 
 
