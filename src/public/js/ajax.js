@@ -150,17 +150,13 @@ function eliminarCliente(id) {
 
 },
   "columns":[
-      {"data":"idProductos",},
-      {"data":"Nombre"},
-      {"data":"seccion"},
+      {"data":"idproducto",},
+      {"data":"nombre"},
       {"data":"categoria"},
-      {"data":"Gramaje"},
-      {"data":"Medida"},
-      {"data":"PrecioUnitario"},
-      {"data":"Stock"},
-      {"data":"Proveedor"},
-      {"data":"rut"},
-      {"data" :"idProductos",  render:function(data)
+      {"data":"sub_categoria"},
+      {"data":"precio"},
+      {"data":"valor_descuento"},
+      {"data" :"idproducto",  render:function(data)
       {
         return `<td>  <a href='/productos/editarProductos/`+data+`' class='edit' title='Actualizar' data-toggle='tooltip'><i class='material-icons'>&#xE254;</i></a></td>`+
                `<td>  <a href='#' onClick='eliminarProductos("`+data+`")'class='delete' title='Eliminar' data-toggle='tooltip'><i class='material-icons'>&#xE872;</i></a> </td>`
