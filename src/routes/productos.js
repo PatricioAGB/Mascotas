@@ -14,21 +14,15 @@ router.get('/verProductos', async (req,res) =>{
 });
 
 
-
- 
-
- router.get('/agregarProductos', async (req,res) =>{
-    const Proveedor = await pool.query('SELECT * FROM proveedor');
-    const Seccion = await pool.query('SELECT * FROM seccion');
-    res.render('productos/AgregarProductos',{Proveedor,Seccion});
+router.get('/agregarProductos', async (req,res) =>{
+  res.render('productos/agregarProductos');
    
+ });
 
-});
-
-router.post('/agregarProductos', async (req,res) => {
+ router.post('/agregarProductos', async (req,res) => {
     try {
-     const {Prov,SUBRUBRO,codigo,descr,gramo,med,precio,stock,NOMBREPRODUCTO,IMAGEN} = req.body;
-     await pool.query('call Agregar_producto(?,?,?,?,?,?,?,?,?,?)',[Prov,SUBRUBRO,codigo,descr,gramo,med,precio,stock,NOMBREPRODUCTO,IMAGEN]);
+     const {NOMBREPRODUCTO,Categoria,subCategoria,Imagen,precio} = req.body;
+     await pool.query('call Agregar_Producto(?,?,?,?,?)',[NOMBREPRODUCTO,Categoria,subCategoria,Imagen,precio]);
      res.redirect('/productos/verProductos');
         
     } catch (e) {
@@ -40,12 +34,8 @@ router.post('/agregarProductos', async (req,res) => {
  router.get('/editarProductos/:id', async (req,res) =>{
     try {
         const {id} = req.params;  
-        const productos = await pool.query('Select * from vista_productos where idProductos = ?',[id]);
-        const Proveedor = await pool.query('SELECT * FROM proveedor');
-        const Seccion = await pool.query('SELECT * FROM seccion');
-        const Rubro = await pool.query('SELECT * FROM rubro');
-        const SubRubro = await pool.query('SELECT * FROM subrubro');
-        res.render('productos/editarProductos',{pr : productos[0],Proveedor,Seccion,Rubro,SubRubro})
+        const productos = await pool.query('Select * from v_productos where idProducto = ?',[id]);
+        res.render('productos/editarProductos',{pr : productos[0]})
         console.log(productos);
     } catch (e) {
         console.log(e);
