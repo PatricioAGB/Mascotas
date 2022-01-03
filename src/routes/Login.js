@@ -9,6 +9,7 @@ router.post("/loginregistro", async (req, res) => {
   try {
     const { user, pass } = req.body;
     let confirmacion = await pool.query("call login (?,?)", [user, pass]);
+    if ( confirmacion[0][0] ){
     let a = confirmacion[0][0];
     let b = JSON.parse(JSON.stringify(a));
     let id = b['idusuario']; //id usuario de la base de datos
@@ -19,12 +20,13 @@ router.post("/loginregistro", async (req, res) => {
     let contrasena = b["pass"]; //contraseña de la base de datos
     if (cargo == 1 && estado == 1 && user == login && pass == contrasena)  { 
       res.render('../views/sesion/admin.hbs',{token:id,us:acc}); //token creado
-    } else {
-    if(user == login && pass == contrasena) {
+    } else if (user == login && pass == contrasena && estado == 1 )  {
       res.render('../views/sesion/loginsuccess.hbs',{token:id,us:acc}); //token creado
-    } else{console.log("contraseña incorrecta");
+    }} else{
+    
+     console.log('Contraseña Incorrecta');
   }}  
-  } catch (e) {
+   catch (e) {
     console.log(e);
   }
 });
