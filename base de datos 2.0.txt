@@ -13,7 +13,7 @@ referencia VARCHAR(30)
 );
 
 
-mascotasCREATE TABLE usuario(
+CREATE TABLE usuario(
 idusuario INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 iddireccion INT UNSIGNED,
 FOREIGN KEY (iddireccion) REFERENCES direccion(iddireccion),
@@ -29,7 +29,7 @@ apellido_materno VARCHAR(60)
 
 CREATE TABLE descuento (
 iddescuento INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-valor_descuento DECIMAL NOT NULL,
+valor_descuento DECIMAL(3,2) NOT NULL,
 nombre_descuento VARCHAR(60) NOT NULL,
 fecha_ini DATETIME NOT NULL,
 fecha_fin DATETIME NOT NULL,
@@ -134,8 +134,24 @@ begin
 	delimiter //
 create procedure login(in apodo varchar(30),in contrasena varchar(20))
 begin
-	SELECT idusuario,cuenta,pass,nombre FROM usuario WHERE cuenta=apodo AND pass=contrasena;
+	SELECT idusuario,cuenta,pass,nombre,cargo,estado_cuenta FROM usuario WHERE cuenta=apodo AND pass=contrasena;
 	
 	
 	end//
-	delimiter ;	
+	delimiter ;		
+
+
+CALL login("ELPatoLP","Patito531");
+
+
+CREATE VIEW v_productos AS
+SELECT p.idproducto,p.nombre,p.categoria,p.sub_categoria,p.precio,d.valor_descuento
+FROM descuento d
+INNER JOIN producto p ON d.iddescuento=p.iddescuento ;
+
+
+SELECT * FROM v_productos;
+
+
+
+
