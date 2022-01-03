@@ -9,7 +9,7 @@ router.get('/verProductos', async (req,res) =>{
  });
 
  router.get('/listaProductos', async (req,res) =>{
-    const productos = await pool.query("SELECT * FROM vista_productos  WHERE estado = 1 ORDER BY idProductos");
+    const productos = await pool.query("SELECT * FROM v_productos WHERE estado = 1 order by idproducto");
     res.send(productos);
 });
 

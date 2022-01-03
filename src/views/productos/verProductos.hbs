@@ -1,15 +1,19 @@
-<link rel="stylesheet" href="css/estilo.css">
+
  <script>
+     
     window.onload = verificar();
     function verificar(){
     let token = localStorage.getItem('token');
+    let us = localStorage.getItem('us');
+    //console.log(us);
     if (token ==""){
      window.location.href="/";
     }}
   </script>
+  <link rel="stylesheet" href="../css/estilo1.css" >
   <body>
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Inicio</a>
+  <a class="navbar-brand" href="Sesion/admin">Inicio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -20,7 +24,7 @@
         <a class="nav-link" href="/productos/verProductos">Productos <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="#">Servicios</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
@@ -29,7 +33,7 @@
     </ul>
   </div>
   <div  align="center">
-   <img src="https://img.icons8.com/office/40/000000/user.png"/><font size=3> {{us}}</font> 
+   <img src="https://img.icons8.com/office/40/000000/user.png"/><font size=3>{{us}}</font> 
   <font size=3><a>editar</a></font>
   <script>
   function myFunction(){
@@ -44,20 +48,23 @@
    </div>   
     
 </nav>
-      
+   
+       
+    
   </body>
-  <div class="container">
+  <div class="container1">
 
     <div class="row shadow-lg p-3 mb-5">
         <div class="col">
-            <table id="tablaProductos" class="tablaProductos" style="width:100%" background-color="blue" >
+            <table id="tablaProductos" class="table table-striped table-bordered" style="width:100%"  >
                 <thead>
-                    <tr background-color="blue">
+                    <tr>
                         <th>Cod.Int</th>
-                        <th>Descuento</th>
                         <th>nombre</th>
+                        <th>categoria</th>
                         <th>sub_categoria</th>
                         <th>precio</th>
+                        <th>descuento</th>
                         <th> <a href='/productos/AgregarProductos' class="edit" title="Agregar" data-toggle="tooltip"><i
                                     class="fas fa-plus"></i></a></th>
 

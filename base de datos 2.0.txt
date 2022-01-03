@@ -145,10 +145,9 @@ begin
 
 
 CREATE VIEW v_productos AS
-SELECT p.idproducto,p.nombre,p.categoria,p.sub_categoria,p.precio,d.valor_descuento
+SELECT p.idproducto,p.nombre,p.categoria,p.sub_categoria,p.precio,d.valor_descuento,p.estado
 FROM descuento d
 INNER JOIN producto p ON d.iddescuento=p.iddescuento ;
-
 
 
 
