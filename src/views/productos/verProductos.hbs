@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="css/estilo.css">
+ <script>
+    window.onload = verificar();
+    function verificar(){
+    let token = localStorage.getItem('token');
+    if (token ==""){
+     window.location.href="/";
+    }}
+  </script>
+  <body>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Inicio</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="/productos/verProductos">Productos <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+     
+    </ul>
+  </div>
+  <div  align="center">
+   <img src="https://img.icons8.com/office/40/000000/user.png"/><font size=3> {{us}}</font> 
+  <font size=3><a>editar</a></font>
+  <script>
+  function myFunction(){
+    localStorage.removeItem('token');
+    window.location.href="/";
+  };
+    </script>
+  <button onclick="myFunction()">Cerrar Sesión
+
+  </button>
+
+   </div>   
+    
+</nav>
+      
+  </body>
+  <div class="container">
+
+    <div class="row shadow-lg p-3 mb-5">
+        <div class="col">
+            <table id="tablaProductos" class="tablaProductos" style="width:100%" background-color="blue" >
+                <thead>
+                    <tr background-color="blue">
+                        <th>Cod.Int</th>
+                        <th>Descuento</th>
+                        <th>nombre</th>
+                        <th>sub_categoria</th>
+                        <th>precio</th>
+                        <th> <a href='/productos/AgregarProductos' class="edit" title="Agregar" data-toggle="tooltip"><i
+                                    class="fas fa-plus"></i></a></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+  
