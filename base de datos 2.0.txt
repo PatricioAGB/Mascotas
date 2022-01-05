@@ -1,3 +1,4 @@
+
 CREATE TABLE comuna(
 idcomuna INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 nombre VARCHAR(60) NOT null
@@ -60,7 +61,7 @@ total INT UNSIGNED NOT null
 
 CREATE TABLE servicio(
 idservicio INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-iddireccion INT UNSIGNED NOT NULL,
+iddireccion INT UNSIGNED 
 FOREIGN KEY (iddireccion) REFERENCES direccion(iddireccion),
 nombre VARCHAR(60) NOT NULL,
 tipo_servicio VARCHAR(60) NOT NULL,
@@ -148,6 +149,12 @@ CREATE VIEW v_productos AS
 SELECT p.idproducto,p.nombre,p.categoria,p.sub_categoria,p.precio,d.valor_descuento,p.estado
 FROM descuento d
 INNER JOIN producto p ON d.iddescuento=p.iddescuento ;
+
+CREATE VIEW v_servicios AS
+SELECT s.idservicio,s.nombre,s.tipo_servicio,s.sub_categoria,s.tipo_atencion,s.precio,s.estado
+FROM	servicio s;
+
+SELECT * FROM v_servicios ;
 
 
 
