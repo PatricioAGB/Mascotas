@@ -14,79 +14,26 @@
                         </div>
 
                         <div class="mb-3">
-                            <select class="form-control" id="Proveedor" name="Prov">
-                                <option value="0">Seleccione Proveedor</option>
-                                {{#each Proveedor}}
-                                <option value={{idProveedor}}>{{nombre}}</option>
-                                {{/each}}
-
-                            </select>
-                        </div>
-
-
-                        <div class="mb-3">
-                            <select class="form-control" id="Seccion" name="SECCION">
-                                <option value="0">Seleccione Seccion</option>
-                                {{#each Seccion}}
-                                <option value={{idSeccion}}>{{nombre}}</option>
-                                {{/each}}
-
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <select class="form-control" id="Rubro" name="RUBRO">
-                                <option value="0">Seleccione Rubro</option>
-
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <select class="form-control" id="Subrubro" name="SUBRUBRO">
-                                <option value="0">Seleccione Subrubro</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <input type="number" class="form-control" id="CodigoBarra" name="codigo"
-                                placeholder="Codigo de barra" required>
+                            <input type="text" class="form-control" id="CodigoBarra" name="Categoria"
+                                placeholder="Categoria" required>
                             <div id="paterno_error" style="font-size:14px; color:#FF0000;"></div>
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="Descripcion" name="descr"
-                                placeholder="Descripcion" required>
+                            <input type="text" class="form-control" id="Descripcion" name="subCategoria"
+                                placeholder="Sub Categoria" required>
                             <div id="materno_error" style="font-size:14px; color:#FF0000;"></div>
                         </div>
                         <div class="mb-3">
-                            <input type="number" class="form-control" id="Gramaje" name="gramo" placeholder="Gramaje"
+                            <input type="text" class="form-control" id="Gramaje" name="Imagen" placeholder="Imagen"
                                 required>
                             <div id="materno_error" style="font-size:14px; color:#FF0000;"></div>
                         </div>
                         <div class="mb-3">
-                            <select class="form-control" id="medida" name="med">
-                                <option value="0" selected>Seleccione una medida</option>
-                                <option value="gr">gr</option>
-                                <option value="kg">kg</option>
-                                <option value="ml">ml</option>
-                                <option value="l">l</option>
-                                <option value="un">un</option>
-
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <input type="number" class="form-control" id="PrecioUnitario" name="precio"
+                            <input type="text" class="form-control" id="PrecioUnitario" name="precio"
                                 placeholder="Precio Unitario" required>
                             <div id="materno_error" style="font-size:14px; color:#FF0000;"></div>
                         </div>
-                        <div class="mb-3">
-                            <input type="number" class="form-control" id="Stock" name="stock" placeholder="Stock"
-                                required>
-                            <div id="materno_error" style="font-size:14px; color:#FF0000;"></div>
-                        </div>
-                        <div class="mb-3">
-                            <input type="url" class="form-control" id="IMAGEN" name="IMAGEN"
-                                placeholder="IMAGEN" required>
-                            <div id="imagen_error" style="font-size:14px; color:#FF0000;"></div>
-                        </div>
-
+                        
                         <div class="d-grid 2-gap">
                             <button class="btn btn-success btn-block">
                                 Agregar
