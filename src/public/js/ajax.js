@@ -240,7 +240,7 @@ function eliminarServicios(id) {
           id: id
         },
         success: () => {
-          tablaProductos.ajax.reload();      
+          tablaServicios.ajax.reload();      
           Swal.fire(
             'Eliminado!',
             'El cliente ha sido eliminado.',

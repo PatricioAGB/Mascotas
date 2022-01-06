@@ -3,19 +3,24 @@ const router = express.Router();
 const pool = require('../database');
 
 
-router.get('/verServicios', async (req,res) =>{
-    res.render('servicios/verServicios');
-   
- });
+router.get('/agregarServicios', async (req, res) => {
+    res.render('/servicios/agregarServicios.hbs');
+});
 
- router.post('/eliminarServicios/:id', async (req,res) =>{
-    try {
+
+router.get('/agregaServicios', async (req,res) =>{
+    res.render('servicios/agregarServicios');
+     
+   });
+
+router.post('/eliminarServicios/:id', async (req,res) =>{
+   try {
         const {id} = req.params;
-        const productos = await pool.query('call eliminar_Servicios (?)',[id]);
-        res.json(productos);
+       const servicios = await pool.query('call eliminarServicios (?)',[id]);
+       res.json(servicios);
         console.log(id);
     } catch (e) {
-        console.log(e)
+       console.log(e)
     }
 });
 
@@ -49,11 +54,6 @@ router.post('/editarServicios/:id', async (req,res) =>{
  router.get('/listaServicios', async (req,res) =>{
     const servicios = await pool.query("SELECT * FROM v_servicios WHERE estado = 1 order by idservicio");
     res.send(servicios);
-});
-
-router.get('/agregarServicios', async (req, res) => {
-
-    res.render('/servicios/agregarServicios');
 });
 
 //router.post('/agregarServicios', async (req, res) => {
