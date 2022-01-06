@@ -70,7 +70,7 @@ router.get("/loginregistro", async (req, res) => {
   res.render("../views/sesion/loginregistro.hbs");
 }); 
 
-  // 
+  // Token (inicio de sesion)
   router.post("/admin", async (req, res) => {
   
     const{us,token} = req.body;
