@@ -3,12 +3,13 @@ const router = express.Router();
 const pool = require('../database');
 
 
-router.get('/agregarServicios', async (req, res) => {
-    res.render('/servicios/agregarServicios.hbs');
-});
+router.get('/verServicios', async (req,res) =>{
+    res.render('servicios/verServicios');
+   
+ });
 
-
-router.get('/agregaServicios', async (req,res) =>{
+// AGREGAR SERVICIO 
+router.get('/agregarServicios', async (req,res) =>{
     res.render('servicios/agregarServicios');
      
    });

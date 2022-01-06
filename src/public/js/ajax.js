@@ -234,7 +234,7 @@ function eliminarServicios(id) {
 
       $.ajax({
 
-        url: "/servicios/verServicios/" + id,
+        url: "/servicios/eliminarServicios/" + id,
         type: "POST",
         data: {
           id: id
