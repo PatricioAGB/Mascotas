@@ -2,23 +2,23 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../database');
 
-
+// get VerProductos
 router.get('/verProductos', async (req,res) =>{
     res.render('productos/verProductos');
    
  });
-
+// mostrar los productos en verproductos
  router.get('/listaProductos', async (req,res) =>{
     const productos = await pool.query("SELECT * FROM v_productos WHERE estado = 1 order by idproducto");
     res.send(productos);
 });
 
-
+// get productos 
 router.get('/agregarProductos', async (req,res) =>{
   res.render('productos/agregarProductos');
    
  });
-
+// agregar los productos
  router.post('/agregarProductos', async (req,res) => {
     try {
      const {NOMBREPRODUCTO,Categoria,subCategoria,Imagen,precio} = req.body;
@@ -30,7 +30,7 @@ router.get('/agregarProductos', async (req,res) =>{
         console.log(e);
     }
  });
-
+// editar productos (vistas)
  router.get('/editarProductos/:id', async (req,res) =>{
     try {
         const {id} = req.params;  
@@ -42,24 +42,25 @@ router.get('/agregarProductos', async (req,res) =>{
     }
 
 });
+//editar productos (update)
 router.post('/editarProductos/:id', async (req,res) =>{
     try {
-        const {Nombre,Proveedor,Subrubro,Codigo,Descripcion,Gramage,medida,Precio,Stock,Imagen} = req.body;
+        const {Nombre,categoria,subcategoria,precio,valordescuento,iddescuento} = req.body;
         const {id} = req.params;  
         console.log(req.body);
         console.log(id);
-        await pool.query('call Actualizar_Productos(?,?,?,?,?,?,?,?,?,?,?)',[id,Proveedor,Subrubro,Codigo,Descripcion,Gramage,medida,Precio,Stock,Nombre,Imagen]);
+        await pool.query('call editar_producto(?,?,?,?,?,?,?)',[id,iddescuento,Nombre,categoria,subcategoria,precio,valordescuento]);
         res.redirect('/productos/verProductos');
         
     } catch (e) {
         console.log(e);
     }
 });
-
+// eliminar productos
 router.post('/eliminarProducto/:id', async (req,res) =>{
     try {
         const {id} = req.params;
-        const productos = await pool.query('call eliminar_Productos (?)',[id]);
+        const productos = await pool.query('call eliminarProducto  (?)',[id]);
         res.json(productos);
         console.log(id);
     } catch (e) {
@@ -67,31 +68,6 @@ router.post('/eliminarProducto/:id', async (req,res) =>{
     }
 });
 
-
-router.get('/seccion/:id', async (req,res) =>{
-
-    try {
-        const {id} = req.params;
-        const rubro =  await pool.query('Select * from rubro where seccion = ?',id);
-        res.json(rubro);
-    } catch (error) {
-        console.log(error);
-    }
-
-});
-
-
-router.get('/rubro/:id', async (req,res) =>{
-
-    try {
-        const {id} = req.params;
-        const subrubro =  await pool.query('Select * from subrubro where rubro = ?',id);
-        res.json(subrubro);
-    } catch (error) {
-        console.log(error);
-    }
-
-});
 
 
 
