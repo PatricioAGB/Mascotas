@@ -9,8 +9,9 @@ router.get('/verProductos', async (req,res) =>{
  });
  router.get('/catalogo', async (req,res) =>{
      try{
-    const productos = await pool.query("Select * from producto where estado = 1");
-    res.render('productos/catalogo', {productos});
+    const producto = await pool.query("Select * from producto where estado = 1");
+    res.render('productos/catalogo', {producto});
+    console.log(producto);
 } catch (error) {
     console.log(error);
 } 

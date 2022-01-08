@@ -2,13 +2,26 @@
 <link rel="stylesheet" href="css/estilo.css">
 <link rel="stylesheet" href="../css/estilo1.css" >
 
+ <script>
+     
+    window.onload = verificar();
+    function verificar(){
+    let token = localStorage.getItem('token');
+    let us = localStorage.getItem('us');
+    console.log(us);
+    if (token ==""){
+     window.location.href="/";
+    }}
+  </script>
+  <link rel="stylesheet" href="../css/estilo1.css" >
   <body>
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/Sesion/admin">INICIO </a>
+  <a class="navbar-brand" href="/productos/catalogo">Inicio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="container1" id="navbarTogglerDemo02">
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
         <a class="nav-link" href="/productos/verProductos">Productos <span class="sr-only">(current)</span></a>
@@ -16,12 +29,12 @@
       <li class="nav-item">
         <a class="nav-link" href="/servicios/verServicios">Servicios</a>
       </li>
-  
+     
      
     </ul>
   </div>
   <div  align="center">
-   <img src="https://img.icons8.com/office/40/000000/user.png"/><font size=3> {{us}}</font> 
+   <img src="https://img.icons8.com/office/40/000000/user.png"/><font size=3>{{us}}</font> 
   <font size=3><a>editar</a></font>
   <script>
   function myFunction(){
@@ -36,8 +49,9 @@
    </div>   
     
 </nav>
-      
-      
+   
+       
+    
   </body>
   <div class="container1">
 

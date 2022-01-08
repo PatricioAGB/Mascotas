@@ -11,6 +11,57 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
+<script>
+     
+    window.onload = verificar();
+    function verificar(){
+    let token = localStorage.getItem('token');
+    let us = localStorage.getItem('us');
+    console.log(us);
+    if (token ==""){
+     window.location.href="/";
+    }}
+  </script>
+  <link rel="stylesheet" href="../css/estilo1.css" >
+  <body>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/productos/catalogo">Inicio</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="/productos/verProductos">Productos <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/servicios/verServicios">Servicios</a>
+      </li>
+     
+     
+    </ul>
+  </div>
+  <div  align="center">
+   <img src="https://img.icons8.com/office/40/000000/user.png"/><font size=3>{{us}}</font> 
+  <font size=3><a>editar</a></font>
+  <script>
+  function myFunction(){
+    localStorage.removeItem('token');
+    window.location.href="/";
+  };
+    </script>
+  <button onclick="myFunction()">Cerrar Sesión
+
+  </button>
+
+   </div>   
+    
+</nav>
+   
+       
+    
+  </body>
 <body class="body">
 <h1>{{us}}</h1>
 <div class="parallax"></div>
@@ -18,11 +69,11 @@
 <div class="container-fluid p-4">
 
 <div class="nav-sub">
-  <h2 style="text-align: center;">Ultimos Productos Agregados</h2>
+  <h2  style="text-align: center;">Ultimos Productos Agregados</h2>
 </div>
     <div class="row" style="opacity: 0.9;">
         {{#each producto}}
-        
+        <th>---</th>
         <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 col-xl-2 mt-4">
             <div class="card mx-auto" style="width: 14rem; border:hidden;">
 
@@ -46,8 +97,11 @@
                   </span>
                  
                 </div>
+                
             </div>
+          
         </div>
+         
         {{else}}
         <div class="col-md-4 mx-auto">
             <div class="card card-body text-center">
@@ -64,20 +118,6 @@
 
 
  
-
-    <script src="/js/menu.js"></script>
-    <script src="/js/lightbox.js"></script>
-    <script>
-const token = '{{token}}';
-// const token = localstorage.getItem('us');    Para otras paginas :D
-// localStorage.removeItem('token');  Para deslogear
-
-const us = '{{us}}';
-console.log(token);
-console.log(us);
-localStorage.setItem('token',token);
-localStorage.setItem('us',us);
-</script>
 </body>
 
 </html>
