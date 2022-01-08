@@ -7,6 +7,14 @@ router.get('/verProductos', async (req,res) =>{
     res.render('productos/verProductos');
    
  });
+ router.get('/catalogo', async (req,res) =>{
+     try{
+    const productos = await pool.query("Select * from producto where estado = 1");
+    res.render('productos/catalogo', {productos});
+} catch (error) {
+    console.log(error);
+} 
+ });
 // mostrar los productos en verproductos
  router.get('/listaProductos', async (req,res) =>{
     const productos = await pool.query("SELECT * FROM v_productos WHERE estado = 1 order by idproducto");

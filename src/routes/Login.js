@@ -21,7 +21,7 @@ router.post("/loginregistro", async (req, res) => {
     if (cargo == 1 && estado == 1 && user == login && pass == contrasena)  { 
       res.render('../views/sesion/admin.hbs',{token:id,us:acc}); //token creado
     } else if (user == login && pass == contrasena && estado == 1 )  {
-      res.render('../views/sesion/loginsuccess.hbs',{token:id,us:acc}); //token creado
+      res.render('../views/sesion/loginsuccess',{token:id,us:acc}); //token creado
     }} else{
     
      console.log('Contraseña Incorrecta');
@@ -58,8 +58,17 @@ router.post("/registro", async (req, res) => {
 // login success
 
 router.get("/login/success", async (req, res) => {
-  res.render("../views/sesion/loginsuccess.hbs");
-});
+  try {
+    const productos = await pool.query("Select * from producto where estado = 1");
+    res.render('../views/sesion/loginsuccess',{producto});
+    } catch (error) {
+        console.log(error);
+    }
+    
+ });
+ 
+
+
   // Get de login
 router.get("/login", async (req, res) => {
   res.render("../views/sesion/login.hbs");
@@ -88,5 +97,8 @@ router.get("/index", async (req, res) => {
 router.get('Sesion/productos/verProductos', async (req,res) =>{
   res.render('/Sesion/productos/verProductos');
  
+});
+router.get("/Sesion/admin", async (req, res) => {
+  res.render("/Sesion/admin");
 });
 module.exports = router;

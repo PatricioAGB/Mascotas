@@ -57,15 +57,18 @@ router.post('/editarServicios/:id', async (req,res) =>{
     res.send(servicios);
 });
 
-//router.post('/agregarServicios', async (req, res) => {
-  //  try {
-    //    const { RUT, COMUNA, NOMBRE, TELEFONO, DIRECCION, NUMERO, CORREO } = req.body;
-      //  await pool.query('call Agregar_Proveedor(?,?,?,?,?,?,?)', [RUT, COMUNA, NOMBRE, TELEFONO, DIRECCION, NUMERO, CORREO]);
-        //res.redirect('/servicios/verServicios');
+router.post('/agregarServicios', async (req, res) => {
+   try {
+        const { RUT, COMUNA, NOMBRE, TELEFONO, DIRECCION, NUMERO, CORREO } = req.body;
+        await pool.query('call Agregar_Proveedor(?,?,?,?,?,?,?)', [RUT, COMUNA, NOMBRE, TELEFONO, DIRECCION, NUMERO, CORREO]);
+        res.redirect('/servicios/verServicios');
 
-   // } catch (e) {
+    } catch (e) {
 
-//        console.log(e);
-  //  }
-//});
+       console.log(e);
+    }
+    router.get("/Sesion/admin", async (req, res) => {
+        res.render("/Sesion/admin");
+      });
+});
 module.exports = router;
