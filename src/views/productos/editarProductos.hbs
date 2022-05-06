@@ -7,7 +7,7 @@
                     <form method="POST" autocomplete="off"  >
                      
                         <div class="mb-3">
-                            <label for="id">Codigo</label>
+                            <label for="id">Id</label>
                             <input type="text" class="form-control" id="id" name="id" disabled value="{{pr.idproducto}}"
                                 aria-autocomplete="none">
                         </div>
@@ -16,20 +16,20 @@
                             <input type="text" class="form-control" id="nombre" name="Nombre"  value="{{pr.nombre}}">
                         </div>
                         <div class="mb-3">
-                            <label for="Codigo">Codigo de Barra</label>
+                            <label for="Codigo">categoria</label>
                             <input type="text" class="form-control" name="categoria" placeholder="Codigo de Barra" value="{{pr.categoria}}">
                         </div>
                         
                         <div class="mb-3">
-                            <label for="Descripcion">Descripcion</label>
+                            <label for="Descripcion">Sub Categoria</label>
                             <input type="text" class="form-control" name="subcategoria" placeholder="Descripción" value="{{pr.sub_categoria}}">
                         </div>
                         <div class="mb-3">
-                            <label for="Gramage">Gramaje</label>
+                            <label for="Gramage">Precio</label>
                             <input type="number" class="form-control" name="precio" placeholder="Gramaje" value="{{pr.precio}}">
                         </div>
                          <div class="mb-3">
-                            <label for="Gramage">Gramaje</label>
+                            <label for="Gramage">Descuento</label>
                             <input type="text" class="form-control" name="valordescuento" placeholder="Gramaje" value="{{pr.valor_descuento}}">
                         </div>
                          <div hidden class="mb-3">

@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
+<link rel="stylesheet" href="../css/estilo1.css" >
 <body class="body">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/productos/catalogo">Inicio</a>
@@ -34,14 +35,15 @@
   </div>
   <div  align="center">
    <img src="https://img.icons8.com/office/40/000000/user.png"/><font size=3> {{us}}</font> 
-  <font size=3><a>editar</a></font>
+  
   <script>
   function myFunction(){
     localStorage.removeItem('token');
     window.location.href="/";
   };
     </script>
-  <button onclick="myFunction()">Cerrar Sesión
+   <a href="/editar/editarPerfil/{{token}}" class="boton">editar</a>
+  <button class="boton" onclick="myFunction()">Cerrar Sesión
 
   </button>
 
@@ -58,8 +60,6 @@ const token = '{{token}}';
 // localStorage.removeItem('token');  Para deslogear
 
 const us = '{{us}}';
-console.log(token);
-console.log(us);
 localStorage.setItem('token',token);
 localStorage.setItem('us',us);
     verificar();

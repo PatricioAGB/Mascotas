@@ -59,8 +59,8 @@ router.post('/editarServicios/:id', async (req,res) =>{
 
 router.post('/agregarServicios', async (req, res) => {
    try {
-        const { RUT, COMUNA, NOMBRE, TELEFONO, DIRECCION, NUMERO, CORREO } = req.body;
-        await pool.query('call Agregar_Proveedor(?,?,?,?,?,?,?)', [RUT, COMUNA, NOMBRE, TELEFONO, DIRECCION, NUMERO, CORREO]);
+        const { nombre, tipo_servicio, sub_categoria, imagen, precio} = req.body;
+        await pool.query('call AgregarServicio(?,?,?,?,?)', [nombre, tipo_servicio, sub_categoria, imagen, precio]);
         res.redirect('/servicios/verServicios');
 
     } catch (e) {

@@ -1,0 +1,40 @@
+<div class="container p-4">
+        <link rel="stylesheet" href="css/estilo.css">
+    <h2 style="text-align: center;">Actualizar Datos de la cuenta</h2>
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" autocomplete="off"  >
+                     
+                        <div class="mb-3">
+                            <label for="id">Correo</label>
+                            <input type="text" class="form-control" id="correo" name="correo"  value="{{ed.correo}}"
+                                aria-autocomplete="none">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" name="nombre" placeholder=" Nombre " value="{{ed.nombre}}">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="tipo_servicio">Apellido Paterno</label>
+                            <input type="text" class="form-control" name="apellido_Paterno" placeholder="Apellido Paterno" value="{{ed.apellido_paterno}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="sub_servicio">Apellido Materno</label>
+                            <input type="text" class="form-control" name="Apellido_Materno" placeholder="Apellido Materno" value="{{ed.apellido_materno}}">
+                        </div>
+ 
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-success">
+                                Actualizar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

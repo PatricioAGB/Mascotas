@@ -5,6 +5,7 @@ const path = require('path');
 const {database} = require('./keys');
 const flash = require('connect-flash');
 
+
 //inicializacion
 
 const app = express();
@@ -48,6 +49,7 @@ app.use('/clientes',require('./routes/clientes'));
 app.use('/sesion',require('./routes/login'));
 app.use('/productos',require('./routes/productos'));
 app.use('/servicios', require ('./routes/servicios'));
+app.use('/editar', require ('./routes/edit'));
 
 
 

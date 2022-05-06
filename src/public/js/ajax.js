@@ -206,7 +206,6 @@ let url3 = 'http://localhost:3000/servicios/listaServicios';
       {"data":"nombre"},
       {"data":"tipo_servicio"},
       {"data":"sub_categoria"},
-      {"data":"tipo_atencion"},
       {"data":"precio"},
       {"data" :"idservicio",  render:function(data)
       {
